@@ -31,4 +31,6 @@ public class Weather {
         this.longitude = longitude;
         this.latitude = latitude;
     }
+
+
 }
