@@ -13,31 +13,30 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/txt_city_name"
+        android:gravity="center_horizontal"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal"/>
+        android:layout_alignParentStart="true"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/img_weather"
-        android:layout_below="@+id/txt_city_name"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"/>
+        android:layout_alignParentStart="false"
+        android:layout_alignRight="@+id/txt_wind"
+        android:layout_alignEnd="@+id/txt_wind"
+        android:layout_below="@+id/txt_city_name"
+        android:layout_above="@+id/txt_description"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/txt_description"
-        android:layout_below="@+id/img_weather"
+        android:layout_below="@+id/txt_tempr"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/txt_tempr"/>
+        android:layout_alignParentStart="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,15 +45,15 @@
         android:text="Large Text"
         android:id="@+id/txt_tempr"
         android:layout_below="@+id/txt_city_name"
-        android:layout_toRightOf="@+id/txt_description"
-        android:layout_toEndOf="@+id/txt_description"/>
+        android:layout_toRightOf="@+id/img_weather"
+        android:layout_toEndOf="@+id/img_weather"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/humidity"
         android:id="@+id/txt_humidity"
-        android:layout_below="@+id/txt_description"
+        android:layout_alignTop="@+id/txt_humidity_value"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
@@ -63,7 +62,7 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/txt_humidity_value"
-        android:layout_alignTop="@+id/txt_humidity"
+        android:layout_below="@+id/txt_description"
         android:layout_toRightOf="@+id/txt_description"
         android:layout_toEndOf="@+id/txt_description"/>
 
@@ -73,17 +72,17 @@
         android:text="@string/pressure"
         android:id="@+id/txt_pressure"
         android:layout_below="@+id/txt_humidity"
-        android:layout_toRightOf="@+id/img_weather"
-        android:layout_toEndOf="@+id/img_weather"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/txt_pressure_value"
-        android:layout_below="@+id/txt_humidity_value"
-        android:layout_toRightOf="@+id/txt_wind_value"
-        android:layout_toEndOf="@+id/txt_wind_value"/>
+        android:layout_alignTop="@+id/txt_pressure"
+        android:layout_toRightOf="@+id/txt_pressure"
+        android:layout_toEndOf="@+id/txt_pressure"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -99,7 +98,7 @@
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/txt_wind_value"
-        android:layout_below="@+id/txt_pressure"
-        android:layout_toRightOf="@+id/txt_humidity"
-        android:layout_toEndOf="@+id/txt_humidity"/>
+        android:layout_alignTop="@+id/txt_wind"
+        android:layout_alignLeft="@+id/txt_humidity_value"
+        android:layout_alignStart="@+id/txt_humidity_value"/>
 </RelativeLayout>

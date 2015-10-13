@@ -1,6 +1,9 @@
 package com.yaroslav.weather_app;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.AsyncTask;
+import android.renderscript.Sampler;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -9,6 +12,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+
 
 /**
  * this class gets JSONs from server
@@ -19,16 +24,17 @@ import java.net.URL;
     public final String body_url = "http://api.openweathermap.org/data/2.5/weather?";
     private final String img_url = "http://openweathermap.org/img/w/";
 
+
     //weather jsongetter method
     public String getWeather (double longitude, double latitude){
 
-        String param = "lat"+String.valueOf(latitude)+"lon"+String.valueOf(longitude);
+        String param = "lat="+String.valueOf(latitude)+"&lon="+String.valueOf(longitude)+"&APPID=" + "63b082c7298009245b1a6a91c683ed5e"  ;
         HttpURLConnection urlConnection= null;
         InputStream inputStream = null;
 
 
         try {
-            URL url = new URL(body_url+param+"&APPID"+R.string.weather_key);
+            URL url = new URL(body_url+param);
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.setDoInput(true);
@@ -68,7 +74,7 @@ import java.net.URL;
         InputStream inputStream = null;
 
         try {
-            httpURLConnection = (HttpURLConnection) (new URL(img_url+img_code)).openConnection();
+            httpURLConnection = (HttpURLConnection) (new URL(img_url+img_code+".png")).openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setDoInput(true);
             httpURLConnection.connect();

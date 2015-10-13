@@ -5,10 +5,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +16,7 @@ import android.widget.TextView;
 import org.json.JSONException;
 
 
-public class MainActivity extends Activity implements LocationListener{
+public class MainActivity extends Activity {
 
     public TextView txt_city_name;
     public TextView txt_description;
@@ -43,31 +41,17 @@ public class MainActivity extends Activity implements LocationListener{
         txt_wind_value = (TextView) findViewById(R.id.txt_wind_value);
         img_weather = (ImageView) findViewById(R.id.img_weather);
 
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+      LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+
         location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 
+
+
+
+
         JSONTaskExecutor task = new JSONTaskExecutor();
-        task.execute(new Location[] {location} ) ;
-
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
+        task.execute(new Location []{location});
 
     }
 
@@ -101,9 +85,9 @@ public class MainActivity extends Activity implements LocationListener{
             }
 
             txt_city_name.setText(weather.getCity() + " " + weather.getCountry());
-            txt_description.setText(weather.getDescription());
+            txt_description.setText("" + weather.getDescription());
             txt_humidiry_value.setText("" + weather.getHumidity() + "%");
-            txt_pressure_value.setText("" + weather.getHumidity() + "hPa");
+            txt_pressure_value.setText("" + weather.getPressure() + "hPa");
             txt_tempr.setText("" + Math.round(weather.getTemp() - 273.15) + "C");
             txt_wind_value.setText("" + weather.getWind_speed());
         }
