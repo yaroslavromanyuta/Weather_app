@@ -7,6 +7,7 @@ public class Weather {
     String city;
     String country;
     String description;
+    String icon;
     double temp;
     int humidity;
     int pressure;
@@ -14,6 +15,8 @@ public class Weather {
     double wind_deg;
     double longitude;
     double latitude;
+
+    byte[] iconData;
 
     public Weather(){
     }
@@ -112,5 +115,11 @@ public class Weather {
         return longitude;
     }
 
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 
+    public String getIcon() {
+        return icon;
+    }
 }
